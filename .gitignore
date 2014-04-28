@@ -53,5 +53,5 @@ coverage.xml
 docs/_build/
 
 # Database
-.db
+*.db
 Thumbs.db
