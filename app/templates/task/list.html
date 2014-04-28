@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% block content %}
+		<section id="todoapp">
+			<header id="header">
+				<h1>todos</h1>				
+				<form id="new-todo-form" method="POST" action="{{ url_for('task.task_post') }}" accept-charset="UTF-8" role="form">					
+					<input type="text" id="new-todo" placeholder="What needs to be done?" autofocus="autofocus" name="description"/>
+					<input type="submit" style="display: none;"/>
+				</form>
+			</header>
+			<section id="main">
+				<input id="toggle-all" type="checkbox">
+				<label for="toggle-all">Mark all as complete</label>
+				<ul id="todo-list">
+					{% for task in todo %}
+						<li>{% include "task/task.html" %}</li>
+					{% endfor %}
+				</ul>
+			</section>
+			<footer id="footer"></footer>
+		</section>
+{% endblock %}

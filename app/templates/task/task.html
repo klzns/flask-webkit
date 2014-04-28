@@ -1,0 +1,8 @@
+<li id="task-{{task.id}}" class="{% if task.complete %}completed{% endif %}">
+	<div class="view">
+		<input class="toggle" type="checkbox" data-task="{{task.id}}" {% if task.complete %}checked="true"{% endif %}>
+		<label>{{task.description}}</label>
+		<button class="destroy" data-task="{{task.id}}"></button>
+	</div>
+	<input class="edit" value="{{task.description}}">
+</li>
