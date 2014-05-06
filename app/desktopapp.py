@@ -6,7 +6,7 @@ from PySide.QtWebKit import *
 from PySide.QtCore import *
 
 # import Flask
-#from app import app as application
+from app import app as application
 
 class WebApp(QThread):
     def setApplication(self, app, setup_callback):
@@ -21,11 +21,11 @@ def main():
     global web, env
 
     # Init Flask server
-    #webappThread = WebApp()
-    #def setup_callback():
-    #    print 'Hi'
-    #webappThread.setApplication(application, setup_callback)
-    #webappThread.start()
+    webappThread = WebApp()
+    def setup_callback():
+        print 'Do something specific here before app start'
+    webappThread.setApplication(application, setup_callback)
+    webappThread.start()
 
     # Init QT app
     app = QApplication(sys.argv)
@@ -44,7 +44,7 @@ def main():
 
     # Bind shut down
     def shutdown():
-        None #webappThread.quit()
+        webappThread.quit()
     app.aboutToQuit.connect(shutdown)
 
     # Start up

@@ -1,1 +1,1 @@
-python app/run.py && python app/desktopapp.py
+python app/desktopapp.py
